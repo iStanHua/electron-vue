@@ -1,0 +1,195 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+a,
+b,
+body,
+button,
+dd,
+div,
+dl,
+dt,
+em,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+i,
+iframe,
+img,
+input,
+label,
+li,
+ol,
+p,
+select,
+span,
+strong,
+textarea,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  line-height: $size*1.4;
+  font-family: $font-family;
+  font-size: $size*1.4;
+  color: $font-color;
+  background-color: $bg-color;
+}
+
+a {
+  text-decoration: none;
+  color: $font-color;
+  cursor: pointer;
+  outline: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  outline: none;
+  border-radius: 0;
+}
+
+button {
+  border: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+em,
+i {
+  font-style: normal;
+}
+
+img {
+  vertical-align: middle;
+  border: 0;
+}
+
+iframe {
+  border: 0;
+}
+
+::-webkit-scrollbar {
+  width: $size * .6;
+  height: $size * .6;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0);
+  border-radius: $size * .6;
+
+  &:hover {
+    background-color: rgba(0,0,0,.1);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,.2);
+  border-radius: $size * .6;
+
+  &:hover {
+    background-color: rgba(0,0,0,.3);
+  }
+
+  &:active {
+    background-color: rgba(0,0,0,.4);
+  }
+}
+@import 'animation.scss';
+@import 'modules/button.scss';
+
+.page {
+  height: 100%;
+}
+
+.content {
+  min-height: 100%;
+  margin-top: - pxToRem(48);
+  padding: pxToRem(48) 0 pxToRem(58);
+}
+
+.wrapper {
+  width: 100%;
+  min-width: $min-width;
+
+  .wrapper-box {
+    width: $min-width;
+    margin: 0 auto;
+  }
+}
+.input-box{
+  position: relative;
+}
+.input {
+  width: pxToRem(280);
+  padding: pxToRem(6) pxToRem(10);
+  font-size: pxToRem(16);
+  line-height: pxToRem(20);
+  color: $font-color;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: pxToRem(1) solid $border-color;
+  border-radius: pxToRem(2);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  &:hover{
+    border-color: rgba($border-color, 0.8);
+  }
+  &:focus{
+    border-color: $base-color;
+    outline: 0;
+    box-shadow: 0 0 0 pxToRem(3) rgba($base-color, 0.38);
+  }
+
+}
+textarea{
+  &.input{
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: pxToRem(80);
+    resize: vertical;
+  }
+}
