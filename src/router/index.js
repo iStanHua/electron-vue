@@ -16,7 +16,7 @@ const router = new Router({
     },
     {
       path: '/index',
-      component: adminLayout,
+      component: layout,
       children: [
         {
           path: '/',

@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="content home-page">
     <p v-for="(item, index) in list" :key="index">{{ item.name }}</p>
   </div>
 </template>
