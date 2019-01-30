@@ -2,7 +2,6 @@
   "name": "electron-app",
   "version": "1.0.0",
   "private": true,
-  "main": "src/background.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -32,6 +31,8 @@
     "compression-webpack-plugin": "^2.0.0",
     "quicklink": "^1.0.0",
     "electron": "^4.0.2",
-    "vue-cli-plugin-electron-builder": "^1.0.0-rc.10"
+    "vue-cli-plugin-electron-builder": "^1.0.0-rc.10",
+    "pixelmatch":"^4.0.2",
+    "pngjs":"^3.3.3"
   }
 }

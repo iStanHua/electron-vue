@@ -7,10 +7,6 @@ module.exports = {
   outputDir: process.env.outputDir || 'dist',
   productionSourceMap: false,
   lintOnSave: false,
-  // filenameHashing: false,
-  // configureWebpack: {
-  //   target: 'electron-renderer',
-  // },
   configureWebpack: config => {
     if (IS_PROD) {
       const plugins = [];
@@ -58,5 +54,9 @@ module.exports = {
       }
     }
   },
-  parallel: require('os').cpus().length > 1
+  pluginOptions: {
+    electronBuilder: {
+      mainProcessFile: 'server.js'
+    }
+  }
 }

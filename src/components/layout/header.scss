@@ -1,3 +1,31 @@
-.header{
-  height: $size*4.8;
+.header {
+  display: flex;
+  height: $size*3.8;
+  box-shadow: 0 -$size*0.1 $size*0.1 rgba($black-color, 0.08);
+  align-items: center;
+  -webkit-user-select: none;
+
+  .logo {
+    height: $size*2.5;
+    padding: 0 $size;
+    -webkit-app-region: drag;
+  }
+
+  .header-drag {
+    height: 100%;
+    flex: 1;
+    -webkit-app-region: drag;
+  }
+
+  .icon {
+    display: inline-flex;
+    width: $size*4.5;
+    height: $size*3.8;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      color: $base-color;
+    }
+  }
 }
