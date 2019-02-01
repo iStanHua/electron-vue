@@ -1,7 +1,6 @@
 import axios from 'axios'
 import store from '@/vuex/store'
 import router from '@/router'
-import { Msg } from '@/components/msg'
 
 // http request 拦截器
 axios.interceptors.request.use(
@@ -24,16 +23,10 @@ axios.interceptors.response.use(function (response) {
   // token 已过期，重定向到登录页面
   else if (response.data.code == 401) {
     store.dispatch('logout')
-    // router.replace({
-    //     path: '/login',
-    //     query: { redirect: router.currentRoute.fullPath }
-    // })
     router.replace('/login')
   }
   else {
-    Msg({
-      message: '系统异常，请重试'
-    })
+    console.log('系统异常，请重试')
   }
   return response
 }, function (error) {

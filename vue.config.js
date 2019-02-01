@@ -1,44 +1,6 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
 
 module.exports = {
-  baseUrl: './',
-  outputDir: process.env.outputDir || 'dist',
-  productionSourceMap: false,
-  lintOnSave: false,
-  configureWebpack: config => {
-    if (IS_PROD) {
-      const plugins = [];
-      plugins.push(
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            compress: {
-              warnings: false,
-              drop_console: true,
-              drop_debugger: false,
-              pure_funcs: ['console.log']
-            }
-          },
-          sourceMap: false,
-          parallel: true
-        })
-      )
-
-      config.plugins = [
-        ...config.plugins,
-        ...plugins
-      ]
-    }
-  },
-  chainWebpack: config => {
-    config.resolve.symlinks(true)
-
-    config.plugin('html').tap(args => {
-      args[0].chunksSortMode = 'none'
-      return args
-    })
-  },
   css: {
     modules: false,
     extract: IS_PROD,
@@ -56,7 +18,17 @@ module.exports = {
   },
   pluginOptions: {
     electronBuilder: {
-      mainProcessFile: 'server.js'
+      chainWebpackMainProcess: config => {
+
+      },
+      chainWebpackRendererProcess: config => {
+        config.plugin('define').tap(args => {
+          args[0]['IS_ELECTRON'] = true
+          return args
+        })
+      },
+      nodeModulesPath: ['../../node_modules', './node_modules'],
+      // mainProcessFile: 'server.js',
     }
   }
 }

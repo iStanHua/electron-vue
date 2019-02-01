@@ -1,12 +1,14 @@
 {
   "name": "electron-app",
   "version": "1.0.0",
+  "description": "electron app",
+  "author": "istanhua",
   "private": true,
+  "main": "background.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "serve:electron": "vue-cli-service serve:electron",
-    "build:electron": "vue-cli-service build:electron",
+    "serve": "vue-cli-service electron:serve",
+    "build": "vue-cli-service electron:build",
+    "postinstall": "electron-builder install-app-deps",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -21,18 +23,13 @@
     "@vue/cli-service": "^3.0.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-core": "^6.26.3",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17",
-    "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack-bundle-analyzer": "^3.0.3",
-    "compression-webpack-plugin": "^2.0.0",
-    "quicklink": "^1.0.0",
     "electron": "^4.0.2",
-    "vue-cli-plugin-electron-builder": "^1.0.0-rc.10",
-    "pixelmatch":"^4.0.2",
-    "pngjs":"^3.3.3"
+    "vue-cli-plugin-electron-builder": "^1.0.0-rc.10"
   }
 }
