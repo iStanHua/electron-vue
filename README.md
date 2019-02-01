@@ -1,8 +1,8 @@
-# vue-app
+# electron-app
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
